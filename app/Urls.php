@@ -38,9 +38,18 @@ class Urls extends Base
      */
     public static function short(String $url) : Urls
     {
+        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+            throw new \Exception("Error Processing Request Invalid Url", 1);
+        }
+        
+        if ($short = self::getByUrl($url)) {
+            return $short;
+        }
+
         $short = new Shortener($url);
         $code = $short->getCode();
         $short_url = Config::get('app.url')."/".$code;
+        
         return self::create([
             'code' => $code,
             'url' => $url,
@@ -50,13 +59,11 @@ class Urls extends Base
         ]);
     }
 
-    public static function redirect($code)
+    public static function getByUrl($url)
     {
-        $url = self::where('code', $code)->first();
-        if (!$url) {
-            return redirect()->to('/');
-        }
-        return redirect()->away($url->url);
+        $url = self::where('url', $url)->first();
+       
+        return $url;
     }
 
     public static function best()
