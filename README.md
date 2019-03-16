@@ -15,6 +15,14 @@ php ^7.1.3
     php artisan serve
 ```
 
+## others
+
+Inserts Guest Users and first Url <`Danger! this removes the data from the user table and urls`>
+
+```ssh
+    php artisan db:seed --class=DatabaseSeeder
+```
+
 ## URL API
 
 Get all the urls

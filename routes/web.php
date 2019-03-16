@@ -15,7 +15,9 @@ use App\Urls;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+Route::get('/api-documentation', 'DocumentationController@index')->name('api-doc');
 
 Route::get('/{code}', function ($code) {
     //Urls::redirect($code);

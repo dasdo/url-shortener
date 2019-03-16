@@ -2,6 +2,9 @@
 
 use App\Urls;
 
+/**
+ * Class to handle the necessary operations of the link shortener
+ */
 class Shortener
 {
     public $url;

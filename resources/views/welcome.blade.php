@@ -38,14 +38,15 @@
     <div class="inner">
       <h3 class="masthead-brand">Url Shortener</h3>
       <nav class="nav nav-masthead justify-content-center">
-        @auth
+        <!---@auth
             <a class="nav-link active" href="{{ url('/home') }}">Home</a>
          @else
             <a class="nav-link" href="{{ route('login') }}">Login</a>
             @if (Route::has('register'))
                 <a class="nav-link" href="{{ route('register') }}">Register</a>
             @endif
-        @endauth
+        @endauth -->
+        <a class="nav-link" href="{{ route('api-doc') }}">Api Documentation</a>
       </nav>
     </div>
   </header>
