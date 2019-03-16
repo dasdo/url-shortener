@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Urls;
+use Response;
 
 class UrlsController extends Controller
 {
@@ -19,13 +20,26 @@ class UrlsController extends Controller
 
     public function get($id)
     {
-        return Urls::find($id);
+        try {
+            $url = Urls::find($id);
+            if(!$url){
+                throw new \Exception("record not found", 1);
+            }
+            return $url;
+        } catch (\Exception $e) {
+            return Response::json(['exception'=>$e->getMessage()],500);
+        }
     }
 
     public function store(Request $request)
     {
-        $url = $request->input('url');
-        return Urls::short($url);
+        try {
+            $url = $request->input('url');
+            $short = Urls::short($url);
+            return $short;
+        } catch (\Exception $e) {
+            return Response::json(['exception'=>$e->getMessage()],500);
+        }
     }
 
     public function delete($id)
