@@ -28,20 +28,16 @@ GET /api/urls
 ```json
 [
     {
-        "code": "9900d184",
-        "short_url": null,
+        "id":1,
+        "short_url": "http://localhost/7f6d604f",
         "url": "https://www.google.com/maps",
-        "hits": 1,
-        "created_at": null,
-        "deleted_at": null
+        "hits": 0
     },
     {
-        "code": "4332eda7",
+        "id":2,
         "short_url": "http://127.0.0.1:8000/4332eda7",
         "url": "http://mcanime.net",
-        "hits": 1,
-        "created_at": "2019-03-16 01:04:33",
-        "deleted_at": null
+        "hits": 1
     }
 ]
 ```
@@ -55,12 +51,10 @@ GET /api/urls/<id>
 
 ```json
 {
-    "code": "9900d184",
-    "short_url": null,
+    "id":1,
+    "short_url": "http://localhost/7f6d604f",
     "url": "https://www.google.com/maps",
-    "hits": 1,
-    "created_at": null,
-    "deleted_at": null
+    "hits": 0
 }
 ```
 
@@ -74,21 +68,17 @@ GET /api/urls/best
 
 ```json
 [
-    {
-        "code": "9900d184",
-        "short_url": null,
+     {
+        "id":1,
+        "short_url": "http://localhost/7f6d604f",
         "url": "https://www.google.com/maps",
-        "hits": 1,
-        "created_at": null,
-        "deleted_at": null
+        "hits": 0
     },
     {
-        "code": "4332eda7",
+        "id":2,
         "short_url": "http://127.0.0.1:8000/4332eda7",
         "url": "http://mcanime.net",
-        "hits": 1,
-        "created_at": "2019-03-16 01:04:33",
-        "deleted_at": null
+        "hits": 1
     }
 ]
 ```
@@ -105,12 +95,10 @@ success
 
 ```json
 {
-    "code": "9900d184",
-    "short_url": null,
+    "id":1,
+    "short_url": "http://localhost/7f6d604f",
     "url": "https://www.google.com/maps",
-    "hits": 1,
-    "created_at": null,
-    "deleted_at": null
+    "hits": 0
 }
 ```
 

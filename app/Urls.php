@@ -22,7 +22,7 @@ class Urls extends Base
      * @var array
      */
     protected $hidden = [
-        'updated_at', 'id', 'user_id'
+        'updated_at', 'user_id', 'created_at', 'deleted_at', 'code'
     ];
 
     /**
