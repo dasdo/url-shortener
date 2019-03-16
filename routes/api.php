@@ -18,26 +18,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-Route::get('urls', function () {
-    return Urls::all();
-});
-
-Route::get('urls/best', function () {
-    return Urls::best();
-});
- 
-Route::get('urls/{id}', function ($id) {
-    return Urls::find($id);
-});
-
-Route::post('urls', function (Request $request) {
-    $url = $request->input('url');
-    return Urls::short($url);
-});
+Route::get('urls', 'UrlsController@index');
+Route::get('urls/best', 'UrlsController@best');
+Route::get('urls/{id}', 'UrlsController@get');
+Route::post('urls', 'UrlsController@store');
 
 Route::delete('urls/{id}', function ($id) {
     Urls::find($id)->delete();
-
     return 204;
 });

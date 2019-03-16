@@ -29,5 +29,3 @@ Route::get('/{code}', function ($code) {
 });
 
 Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');

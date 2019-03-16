@@ -20,8 +20,6 @@ class CreateUrlsTable extends Migration
             $table->longText('url');
             $table->integer('hits');
             $table->bigInteger('user_id');
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
