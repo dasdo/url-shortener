@@ -156,3 +156,58 @@ $.get("/api/urls/best", function(data) {
     console.log(data.exception);
 });
 ```
+
+## algorithm
+
+```php
+<?php
+    /**
+     * Short Links
+     */
+    public static function short(String $url) : Urls
+    {
+        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+            throw new \Exception("Error Processing Request Invalid Url", 1);
+        }
+        
+        if ($short = self::getByUrl($url)) {
+            return $short;
+        }
+
+        $short = new Shortener($url);
+        $code = $short->getCode();
+        $short_url = Config::get('app.url')."/".$code;
+        
+        return self::create([
+            'code' => $code,
+            'url' => $url,
+            'hits' => 0,
+            'user_id' => Auth::id(),
+            'short_url' => $short_url,
+        ]);
+    }
+
+    <?php namespace App\Libreries;
+
+        use App\Urls;
+
+        class Shortener
+        {
+            public $url;
+            public function __construct(String $url)
+            {
+                $this->url = $url;
+            }
+
+            public function getCode()
+            {
+                $code = substr(md5(uniqid(mt_rand(), true)), 0, 8);
+                $url = Urls::where('code', $code)->first();
+
+                if(!$url){
+                    return $code;
+                }
+                return $this->getCode();
+            }
+        }
+```

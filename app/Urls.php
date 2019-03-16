@@ -69,7 +69,7 @@ class Urls extends Base
     public static function best()
     {
         return self::take(100)
-                     ->orderBy('hits', 'desc')
+                     ->orderBy('hits', 'asc')
                      ->get();
     }
 }
