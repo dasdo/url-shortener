@@ -18,8 +18,8 @@ class CreateUrlsTable extends Migration
             $table->string('code')->unique();
             $table->longText('short_url');
             $table->longText('url');
-            $table->integer('hits');
-            $table->bigInteger('user_id');
+            $table->integer('hits')->nullable();
+            $table->bigInteger('user_id')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
