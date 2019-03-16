@@ -2,6 +2,9 @@
 
 ## Require
 php ^7.1.3
+composer
+phpunit
+mysql
 
 ## install
 
