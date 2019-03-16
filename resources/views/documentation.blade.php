@@ -9,14 +9,14 @@
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
                             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Get all the urls : GET /api/urls
+                            Get all the urls
                             </button>
                         </h5>
                     </div>
 
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
-                            <p class="request">GET /api/urls</p>
+                            <p class="request"><span class="badge badge-success">GET</span> /api/urls</p>
                             <p class="sample">**Sample response:**</p>
                             <code> 
                             [
@@ -41,14 +41,14 @@
                     <div class="card-header" id="headingTwo">
                         <h5 class="mb-0">
                             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                            Get url by id : GET /api/urls/<id>
+                            Get url by id
                             </button>
                         </h5>
                     </div>
 
                     <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
                         <div class="card-body">
-                            <p class="request">GET /api/urls/<id></p>
+                            <p class="request"><span class="badge badge-success">GET</span> /api/urls/{id}</p>
                             <p class="sample">**Sample response:**</p>
                             <code> 
                                 {
@@ -65,14 +65,14 @@
                     <div class="card-header" id="headingThree">
                         <h5 class="mb-0">
                             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                            Get best `100` urls : GET /api/urls/best
+                            Get best `100` urls
                             </button>
                         </h5>
                     </div>
 
                     <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
                         <div class="card-body">
-                            <p class="request">GET /api/urls/best</p>
+                            <p class="request"><span class="badge badge-success">GET</span> /api/urls/best</p>
                             <p class="sample">**Sample response:**</p>
                             <code> 
                             [
@@ -97,14 +97,14 @@
                     <div class="card-header" id="headingFour">
                         <h5 class="mb-0">
                             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                            Short a link : POST /api/urls  {url:"http://example.com"}
+                            Short a link
                             </button>
                         </h5>
                     </div>
 
                     <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordion">
                         <div class="card-body">
-                            <p class="request">POST /api/urls  {url:"http://example.com"}</p>
+                            <p class="request"><span class="badge badge-primary">POST</span> /api/urls  {url:"http://example.com"}</p>
                             <p class="sample">**Sample response:**</p>
                             <code>
                                 {
