@@ -12,6 +12,12 @@ class Shortener
 
     public function getCode()
     {
-        return substr(md5(uniqid(mt_rand(), true)), 0, 8);
+        $code = substr(md5(uniqid(mt_rand(), true)), 0, 8);
+        $url = Urls::where('code', $code)->first();
+
+        if(!$url){
+            return $code;
+        }
+        return $this->getCode();
     }
 }
