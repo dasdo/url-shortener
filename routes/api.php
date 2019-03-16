@@ -22,8 +22,4 @@ Route::get('urls', 'UrlsController@index');
 Route::get('urls/best', 'UrlsController@best');
 Route::get('urls/{id}', 'UrlsController@get');
 Route::post('urls', 'UrlsController@store');
-
-Route::delete('urls/{id}', function ($id) {
-    Urls::find($id)->delete();
-    return 204;
-});
+Route::delete('urls/{id}', 'UrlsController@delete');

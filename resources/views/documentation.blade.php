@@ -46,7 +46,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                         <div class="card-body">
                             <p class="request"><span class="badge badge-success">GET</span> /api/urls/{id}</p>
                             <p class="sample">**Sample response:**</p>
@@ -70,7 +70,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                         <div class="card-body">
                             <p class="request"><span class="badge badge-success">GET</span> /api/urls/best</p>
                             <p class="sample">**Sample response:**</p>
@@ -102,7 +102,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordion">
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                         <div class="card-body">
                             <p class="request"><span class="badge badge-primary">POST</span> /api/urls  {url:"http://example.com"}</p>
                             <p class="sample">**Sample response:**</p>
@@ -112,6 +112,27 @@
                                     "short_url": "http://localhost/7f6d604f",
                                     "url": "https://www.google.com/maps",
                                     "hits": 0
+                                }
+                            </code>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFive">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                            Delete url
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                        <div class="card-body">
+                            <p class="request"><span class="badge badge-danger">DELETE</span> /api/urls/{id}</p>
+                            <p class="sample">**Sample response:**</p>
+                            <code> 
+                                {
+                                   "url delete"
                                 }
                             </code>
                         </div>

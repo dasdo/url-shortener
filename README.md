@@ -23,6 +23,14 @@ Inserts Guest Users and first Url <`Danger! this removes the data from the user 
     php artisan db:seed --class=DatabaseSeeder
 ```
 
+## Test
+
+Run test
+
+```ssh
+phpunit
+```
+
 ## URL API
 
 Get all the urls
@@ -99,7 +107,7 @@ POST /api/urls  {url:"http://example.com"}
 
 **Sample response:**
 
-success
+Success
 
 ```json
 {
@@ -118,6 +126,29 @@ success
 }
 ```
 
+Delete urls
+
+```ssh
+DELETE /api/urls/<id>
+```
+
+**Sample response:**
+
+Success
+
+```json
+{
+    "url delete"
+}
+```
+
+Failed
+
+```json
+{
+    "exception": "Error Processing Request"
+}
+```
 
 ## JS implement
 
@@ -165,27 +196,50 @@ $.get("/api/urls/best", function(data) {
 });
 ```
 
+Delete url
+
+```javascript
+$.delete("/api/urls/1", function(data) {
+    console.log(data);
+})
+.fail(function() {
+    console.log(data.exception);
+});
+```
+
 ## algorithm
 
 ```php
 <?php
     /**
      * Short Links
+     * @param string $url
+     * @return Urls
      */
     public static function short(String $url) : Urls
     {
+        // Validate url
         if (!filter_var($url, FILTER_VALIDATE_URL)) {
             throw new \Exception("Error Processing Request Invalid Url", 1);
         }
         
+        /**
+         * if it already exists, we return the short link
+         */
         if ($short = self::getByUrl($url)) {
             return $short;
         }
 
+        /**
+         * Generate code for short url
+         */
         $short = new Shortener($url);
         $code = $short->getCode();
         $short_url = Config::get('app.url')."/".$code;
-        
+
+        //if no loging put gest user
+        $userId = Auth::id() | 1;
+
         return self::create([
             'code' => $code,
             'url' => $url,
@@ -195,27 +249,30 @@ $.get("/api/urls/best", function(data) {
         ]);
     }
 
-    <?php namespace App\Libreries;
+<?php namespace App\Libreries;
 
-        use App\Urls;
+    use App\Urls;
 
-        class Shortener
+    /**
+     * Class to handle the necessary operations of the link shortener
+     */
+    class Shortener
+    {
+        public $url;
+        public function __construct(String $url)
         {
-            public $url;
-            public function __construct(String $url)
-            {
-                $this->url = $url;
-            }
-
-            public function getCode()
-            {
-                $code = substr(md5(uniqid(mt_rand(), true)), 0, 8);
-                $url = Urls::where('code', $code)->first();
-
-                if(!$url){
-                    return $code;
-                }
-                return $this->getCode();
-            }
+            $this->url = $url;
         }
+
+        public function getCode()
+        {
+            $code = substr(md5(uniqid(mt_rand(), true)), 0, 8);
+            $url = Urls::where('code', $code)->first();
+
+            if(!$url){
+                return $code;
+            }
+            return $this->getCode();
+        }
+    }
 ```
