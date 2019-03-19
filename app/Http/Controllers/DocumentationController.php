@@ -14,6 +14,6 @@ class DocumentationController extends Controller
      */
     public function index()
     {
-        return view('Documentation');
+        return view('documentation');
     }
 }
